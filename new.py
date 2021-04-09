@@ -1,4 +1,5 @@
 a=[1,2,3,45,6]
+#kira
 addr=['a','b','c','d','e']
 comp_addr=['b','x','y','d','e']
 truth=[]
