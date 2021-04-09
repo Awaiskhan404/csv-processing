@@ -1,4 +1,4 @@
-﻿Status,Close Date,Close Price,Property ID,New Construction Type,MLS Number,List Agent Full Name,List Agent MLSID,List Office Name,Street Number Street Name Street Suffix Unit Number City State Or Province Postal Code
+﻿Status,Close Date,Close Price,Property_ID,New Construction Type,MLS Number,List Agent Full Name,List Agent MLSID,List Office Name,comp_addr
 Closed,2/26/2021,372836,,To Be Built,170194294,Kathy Childs,PALAGONK,Thomas Jacovino,43 Tamarack Court 300 Prospect Connecticut 06712
 Closed,2/26/2021,435507,,To Be Built,170221671,Kathy Childs,PALAGONK,Thomas Jacovino,41 Tamarack Court 301 Prospect Connecticut 06712
 Closed,2/26/2021,893314,,Under Construction,170244505,Therese M Nuzzolo,NUZZOLOT,Berkshire Hathaway NE Prop.,57 Derby Way 11 Glastonbury Connecticut 06033
