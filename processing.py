@@ -1,13 +1,8 @@
 
 import pandas as pd
 
-matrix=pd.read_csv('matrix.csv')
-main=pd.read_csv('main.csv')
 
-main_addr=main['main_addr'].values.tolist()#addr from main.csv
-copy_id=main['copy_id'].values.tolist()#id from main.csv
-comp_addr=matrix['comp_addr'].values.tolist()#compare addr
-replace_id=matrix['Property_ID'].values.tolist()#copy id
+
 
 def Lower(a,b):
     c=[]
@@ -35,8 +30,32 @@ def compare(a,b,c,d):
             z=int(z)
             d.append(c[z])
         else:
-            d.append('na')
+            d.append('NA')
+    #print(truth)
+    #print(ind_vlaue)
 
 if __name__=='__main__':
+    matrix=pd.read_csv('./matrix.csv')
+    main=pd.read_csv('./main.csv')#first row of main.csv is changed
+    matrix.pop('Property_ID')
+    main_addr=main['main_addr'].values.tolist()#addr from main.csv
+    copy_id=main['copy_id'].values.tolist()#id from main.csv
+    comp_addr=matrix['comp_addr'].values.tolist()#compare addr
+    replace_id=[]#copy id
     main_addr1,comp_addr1=Lower(main_addr,comp_addr)
     compare(comp_addr1,main_addr1,copy_id,replace_id)
+    data={
+        'Status':matrix['Status'].values.tolist(),
+        'Close Date':matrix['Close Date'].values.tolist(),
+        'Close Price':matrix['Close Price'].values.tolist(),
+        'Property_ID':replace_id,
+        'New Construction Type':matrix['New Construction Type'].values.tolist(),
+        'MLS Number':matrix['MLS Number'].values.tolist(),
+        'List Agent Full Name':matrix['List Agent Full Name'].values.tolist(),
+        'List Agent MLSID':matrix['List Agent MLSID'].values.tolist(),
+        'List Office Name':matrix['List Office Name'].values.tolist(),
+        'Property Address':comp_addr
+
+    }
+    df=pd.DataFrame(data)
+    df.to_csv('final.csv')

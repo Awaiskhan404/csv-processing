@@ -11,7 +11,8 @@ for x in comp_addr:
     else:
         truth.append('false')
         ind_vlaue.append('na')
-b=[]
+b=[1,2,3,4,5]
+b.clear()
 for z in ind_vlaue:
     if z!='na':
         z=int(z)
