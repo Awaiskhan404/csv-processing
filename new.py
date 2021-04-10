@@ -1,7 +1,7 @@
 a=[1,2,3,45,6]
 #kira
 addr=['a','b','c','d','e']
-comp_addr=['b','x','y','d','e']
+comp_addr=['b','x','d','e']
 truth=[]
 ind_vlaue=[]
 for x in comp_addr:

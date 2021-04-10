@@ -1,14 +1,13 @@
 
 import pandas as pd
 
-
 matrix=pd.read_csv('matrix.csv')
 main=pd.read_csv('main.csv')
 
-main_addr=main['main_addr'].values.tolist()
-copy_id=main['copy_id'].values.tolist()
-comp_addr=matrix['comp_addr'].values.tolist()
-replace_id=matrix['Property_ID'].values.tolist()
+main_addr=main['main_addr'].values.tolist()#addr from main.csv
+copy_id=main['copy_id'].values.tolist()#id from main.csv
+comp_addr=matrix['comp_addr'].values.tolist()#compare addr
+replace_id=matrix['Property_ID'].values.tolist()#copy id
 
 def Lower(a,b):
     c=[]
@@ -20,19 +19,24 @@ def Lower(a,b):
         y=y.lower().replace(' ','')
         d.append(y)
     return c,d
-main_addr1,comp_addr1=Lower(main_addr,comp_addr)
+
 def compare(a,b,c,d):
-    available=[]
-    index_value=[]
+    truth=[]
+    ind_vlaue=[]
     for x in a:
         if x in b:
-            available.append('true')
-            ind=b.index(x)
-            index_value.append(ind)
+            truth.append('true')
+            ind_vlaue.append(b.index(x))
         else:
-            available.append('false')
-            index_value.append('NA')
+            truth.append('false')
+            ind_vlaue.append('na')
+    for z in ind_vlaue:
+        if z!='na':
+            z=int(z)
+            d.append(c[z])
+        else:
+            d.append('na')
 
-        
-
-
+if __name__=='__main__':
+    main_addr1,comp_addr1=Lower(main_addr,comp_addr)
+    compare(comp_addr1,main_addr1,copy_id,replace_id)
