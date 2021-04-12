@@ -1,9 +1,8 @@
-
+#kira
 import pandas as pd
 
-
-
-
+global counter
+counter=0
 def Lower(a,b):
     c=[]
     d=[]
@@ -18,8 +17,10 @@ def Lower(a,b):
 def compare(a,b,c,d):
     truth=[]
     ind_vlaue=[]
+    global counter
     for x in a:
         if x in b:
+            counter+=1
             truth.append('true')
             ind_vlaue.append(b.index(x))
         else:
@@ -59,3 +60,4 @@ if __name__=='__main__':
     }
     df=pd.DataFrame(data)
     df.to_csv('final.csv')
+    print('Value matched-->',counter)
